@@ -3,3 +3,7 @@
 
 @include generate-color-utilities($colors);
 @include generate-font-sizes-utilities($font-sizes);
+
+.text-center {
+  text-align: center;
+}

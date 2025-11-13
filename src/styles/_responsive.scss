@@ -1,0 +1,6 @@
+@include min-respond(md) {
+  :root {
+    --fs-400: var(--size-16);
+    --fs-700: var(--size-32);
+  }
+}

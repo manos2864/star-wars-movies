@@ -1,3 +1,20 @@
+$sizes-map: (
+  4: var(--size-4),
+  8: var(--size-8),
+  10: var(--size-10),
+  12: var(--size-12),
+  14: var(--size-14),
+  16: var(--size-16),
+  18: var(--size-18),
+  20: var(--size-20),
+  24: var(--size-24),
+  32: var(--size-32),
+);
+
+@function size($n) {
+  @return map-get($sizes-map, $n);
+}
+
 $colors: (
   text-primary: $primary,
   text-green: $green,
@@ -11,4 +28,11 @@ $colors: (
 $font-sizes: (
   fs-regular: $font-size-regular,
   fs-lg: $font-size-lg,
+);
+
+$breakpoints: (
+  sm: 500px,
+  md: 760px,
+  lg: 1024px,
+  xl: 1440px,
 );

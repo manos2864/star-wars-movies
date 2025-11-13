@@ -19,3 +19,15 @@
     }
   }
 }
+
+@mixin min-respond($key) {
+  $value: map-get($breakpoints, $key);
+
+  @if $value {
+    @media (width > #{$value}) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint found for '#{$key}' in $breakpoints map.";
+  }
+}

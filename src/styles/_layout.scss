@@ -1,0 +1,12 @@
+@import "./_variables.scss";
+
+.equal-columns {
+  display: grid;
+  gap: size(16);
+  align-items: center;
+
+  @include min-respond(sm) {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}

@@ -1,0 +1,5 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+@include generate-color-utilities($colors);
+@include generate-font-sizes-utilities($font-sizes);

@@ -1,4 +1,8 @@
+@import "./colors.scss";
+@import "./fonts.scss";
+
 $sizes-map: (
+  2: var(--size-2),
   4: var(--size-4),
   8: var(--size-8),
   10: var(--size-10),

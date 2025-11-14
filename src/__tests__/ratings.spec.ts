@@ -3,7 +3,7 @@ import {
   calculateAverageRating,
   normalizeRating,
   ratingToPercentage,
-} from "../pages/home/helpers";
+} from "../pages/movies/helpers";
 
 describe("Test cases for normalizeRating function", () => {
   it("should normalize IMDB rating correctly", () => {

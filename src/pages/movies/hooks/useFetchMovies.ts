@@ -2,7 +2,7 @@ import { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { type AppDispatch } from "@/store";
-import { fetchOmdAction, fetchSwapiAction } from "@/store/home/actions";
+import { fetchOmdAction, fetchSwapiAction } from "@/store/movies/actions";
 
 const useFetchMovies = () => {
   const dispatch = useDispatch<AppDispatch>();

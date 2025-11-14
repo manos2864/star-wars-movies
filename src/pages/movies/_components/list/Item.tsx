@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import variables from "@/styles/_exports.module.scss";
 import { numberToRoman } from "@/utils/display";
 import {
-  selectHomeMovie,
-  selectHomeMovieAverageRating,
-  selectHomeSelectedMovieId,
-} from "@/store/home/selectors";
+  selectMovie,
+  selectMovieAverageRating,
+  selectSelectedMovieId,
+} from "@/store/movies/selectors";
 import { type AppDispatch, type RootState } from "@/store";
-import { setSelectedMovieId } from "@/store/home/slice";
+import { setSelectedMovieId } from "@/store/movies/slice";
 import Rating from "@/_components/Rating";
 
 interface ItemProps {
@@ -19,12 +19,12 @@ interface ItemProps {
 
 const Item: FC<ItemProps> = ({ movieId }) => {
   const { episode_id, title, release_date } = useSelector((state: RootState) =>
-    selectHomeMovie(state, movieId)
+    selectMovie(state, movieId)
   );
   const averageRating = useSelector((state: RootState) =>
-    episode_id ? selectHomeMovieAverageRating(state, episode_id) : null
+    episode_id ? selectMovieAverageRating(state, episode_id) : null
   );
-  const selectedMovieId = useSelector(selectHomeSelectedMovieId);
+  const selectedMovieId = useSelector(selectSelectedMovieId);
   const isItemSelected = selectedMovieId === movieId;
   const dispatch = useDispatch<AppDispatch>();
 

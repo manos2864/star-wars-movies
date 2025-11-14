@@ -2,28 +2,28 @@ import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
 import Placeholder from "@/_components/Placeholder";
 import {
-  selectHomeMovieAverageRating,
-  selectHomeMovieRatings,
-  selectHomeSelectedMovie,
-} from "@/store/home/selectors";
+  selectMovieAverageRating,
+  selectMovieRatings,
+  selectSelectedMovie,
+} from "@/store/movies/selectors";
 import variables from "@/styles/_exports.module.scss";
 import Image from "@/_components/Image";
 import { RootState } from "@/store";
 import Rating from "@/_components/Rating";
 import PillContainer from "@/_components/PillContainer";
-import { ratingToPercentage } from "@/pages/home/helpers";
+import { ratingToPercentage } from "@/pages/movies/helpers";
 
 const MovieDetails = () => {
-  const selectedMovie = useSelector(selectHomeSelectedMovie);
+  const selectedMovie = useSelector(selectSelectedMovie);
   const ratings = useSelector((state: RootState) =>
     selectedMovie?.episode_id
-      ? selectHomeMovieRatings(state, selectedMovie.episode_id)
+      ? selectMovieRatings(state, selectedMovie.episode_id)
       : []
   );
 
   const averageRating = useSelector((state: RootState) =>
     selectedMovie?.episode_id
-      ? selectHomeMovieAverageRating(state, selectedMovie.episode_id)
+      ? selectMovieAverageRating(state, selectedMovie.episode_id)
       : null
   );
 

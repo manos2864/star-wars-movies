@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import homeReducer from "./home/slice";
+import moviesReducer from "./movies/slice";
 
 const store = configureStore({
   reducer: {
-    home: homeReducer,
+    movies: moviesReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

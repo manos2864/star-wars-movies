@@ -19,8 +19,8 @@ const initialState: SliceState = {
   loading: false,
 };
 
-const homeSlice = createSlice({
-  name: "home",
+const moviesSlice = createSlice({
+  name: "movies",
   initialState,
   reducers: {
     setSelectedMovieId(state, action: PayloadAction<number | null>) {
@@ -78,6 +78,6 @@ const homeSlice = createSlice({
   },
 });
 
-export const { setSelectedMovieId } = homeSlice.actions;
+export const { setSelectedMovieId } = moviesSlice.actions;
 
-export default homeSlice.reducer;
+export default moviesSlice.reducer;

@@ -5,15 +5,15 @@ import styled from "@emotion/styled";
 import Placeholder from "@/_components/Placeholder";
 import variables from "@/styles/_exports.module.scss";
 import {
-  selectHomeIsLoading,
-  selectHomeMovieIds,
-} from "@/store/home/selectors";
+  selectMoviesAreLoading,
+  selectMovieIds,
+} from "@/store/movies/selectors";
 import Spinner from "@/_components/Spinner";
 import Item from "./Item";
 
 const List: FC = () => {
-  const movieIds = useSelector(selectHomeMovieIds);
-  const isLoading = useSelector(selectHomeIsLoading);
+  const movieIds = useSelector(selectMovieIds);
+  const isLoading = useSelector(selectMoviesAreLoading);
   const isEmpty =
     (Array.isArray(movieIds) && movieIds.length === 0) ||
     !Array.isArray(movieIds);

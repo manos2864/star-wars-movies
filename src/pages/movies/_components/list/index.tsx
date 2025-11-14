@@ -19,7 +19,7 @@ const List: FC = () => {
     !Array.isArray(filteredMovieIds);
 
   return (
-    <BorderContainer>
+    <BorderContainer className="full-height-movies-container">
       {isLoading ? <Spinner /> : null}
 
       <ListContainer>
@@ -49,6 +49,5 @@ const BorderContainer = styled.div`
   @media (width > ${variables.md}) {
     border-right: 1px solid;
     border-color: ${variables["bg-light"]};
-    min-height: 100vh;
   }
 `;

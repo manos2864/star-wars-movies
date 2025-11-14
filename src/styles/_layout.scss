@@ -1,0 +1,19 @@
+.full-height-movies-container {
+  min-block-size: var(--min-height-movies-container, 0vh);
+
+  @include respond-above(md) {
+    --min-height-movies-container: 72vh;
+  }
+
+  @include respond-above(lg) {
+    --min-height-movies-container: 76vh;
+  }
+
+  @include respond-above(xl) {
+    --min-height-movies-container: 80vh;
+  }
+
+  @include respond-above(xxl) {
+    --min-height-movies-container: 82vh;
+  }
+}

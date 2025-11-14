@@ -1,4 +1,4 @@
-@include min-respond(md) {
+@include respond-above(md) {
   :root {
     --fs-400: 16px;
     --fs-700: 32px;

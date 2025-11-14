@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
-import Placeholder from "@/_components/Placeholder";
+import Placeholder from "@/_components/display/Placeholder";
 import {
   selectMovieAverageRating,
   selectMovieRatings,
@@ -8,10 +8,10 @@ import {
   selectSelectedMovie,
 } from "@/store/movies/selectors";
 import variables from "@/styles/_exports.module.scss";
-import Image from "@/_components/Image";
+import Image from "@/_components/display/Image";
 import { RootState } from "@/store";
-import Rating from "@/_components/Rating";
-import PillContainer from "@/_components/PillContainer";
+import Rating from "@/_components/display/Rating";
+import PillContainer from "@/_components/display/PillContainer";
 import { ratingToPercentage } from "@/pages/movies/helpers";
 
 const MovieDetails = () => {

@@ -2,13 +2,13 @@ import type { FC } from "react";
 import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
 
-import Placeholder from "@/_components/Placeholder";
+import Placeholder from "@/_components/display/Placeholder";
 import variables from "@/styles/_exports.module.scss";
 import {
   selectMoviesAreLoading,
   selectFilteredSortedMovieIds,
 } from "@/store/movies/selectors";
-import Spinner from "@/_components/Spinner";
+import Spinner from "@/_components/feedback/Spinner";
 import Item from "./Item";
 
 const List: FC = () => {

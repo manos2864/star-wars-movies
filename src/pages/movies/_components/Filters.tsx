@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 import { useDispatch, useSelector } from "react-redux";
 
 import variables from "@/styles/_exports.module.scss";
-import Dropdown from "@/_components/Dropdown";
-import Input from "@/_components/Input";
+import Dropdown from "@/_components/form/Dropdown";
+import Input from "@/_components/form/Input";
 import { type AppDispatch } from "@/store";
 import {
   setSearchFilter,

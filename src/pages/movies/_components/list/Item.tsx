@@ -11,7 +11,7 @@ import {
 } from "@/store/movies/selectors";
 import { type AppDispatch, type RootState } from "@/store";
 import { setSelectedMovieId } from "@/store/movies/slice";
-import Rating from "@/_components/Rating";
+import Rating from "@/_components/display/Rating";
 
 interface ItemProps {
   movieId: number;

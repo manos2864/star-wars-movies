@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SwapiResponse } from "@/entities/swapi";
+import { type SwapiResponse } from "@/entities/swapi";
 
 export const fetchSwapi = async () => {
   try {

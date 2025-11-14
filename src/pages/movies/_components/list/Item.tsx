@@ -3,10 +3,10 @@ import styled from "@emotion/styled";
 import { useDispatch, useSelector } from "react-redux";
 
 import variables from "@/styles/_exports.module.scss";
-import { numberToRoman } from "@/utils/display";
 import {
   selectMovie,
   selectMovieAverageRating,
+  selectMovieTitle,
   selectSelectedMovieId,
 } from "@/store/movies/selectors";
 import { type AppDispatch, type RootState } from "@/store";
@@ -18,8 +18,11 @@ interface ItemProps {
 }
 
 const Item: FC<ItemProps> = ({ movieId }) => {
-  const { episode_id, title, release_date } = useSelector((state: RootState) =>
+  const { episode_id, release_date } = useSelector((state: RootState) =>
     selectMovie(state, movieId)
+  );
+  const movieTitle = useSelector((state: RootState) =>
+    selectMovieTitle(state, episode_id)
   );
   const averageRating = useSelector((state: RootState) =>
     episode_id ? selectMovieAverageRating(state, episode_id) : null
@@ -41,9 +44,7 @@ const Item: FC<ItemProps> = ({ movieId }) => {
     >
       <div>EPISODE {episode_id}</div>
 
-      <div>
-        Episode {numberToRoman(episode_id)} - {title}
-      </div>
+      <div>{movieTitle}</div>
 
       <Rating rating={averageRating} />
 

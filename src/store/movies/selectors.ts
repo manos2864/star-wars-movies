@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 
 import { calculateAverageRating } from "@/pages/movies/helpers";
 import type { RootState } from "@/store/index.ts";
+import { numberToRoman } from "@/utils/display";
 
 const moviesReducer = (state: RootState) => state.movies;
 
@@ -34,4 +35,10 @@ export const selectMovieAverageRating = createSelector(
   (state: RootState, movieId: number) =>
     selectMovieRatings(state, movieId) || [],
   (ratings) => calculateAverageRating(ratings)
+);
+
+export const selectMovieTitle = createSelector(
+  (state: RootState, movieId: number) => selectMovie(state, movieId),
+  (_: RootState, movieId: number) => movieId,
+  (movie, movieId) => `Episode ${numberToRoman(movieId)} - ${movie.title}`
 );

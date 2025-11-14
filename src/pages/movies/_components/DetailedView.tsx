@@ -4,6 +4,7 @@ import Placeholder from "@/_components/Placeholder";
 import {
   selectMovieAverageRating,
   selectMovieRatings,
+  selectMovieTitle,
   selectSelectedMovie,
 } from "@/store/movies/selectors";
 import variables from "@/styles/_exports.module.scss";
@@ -19,6 +20,11 @@ const MovieDetails = () => {
     selectedMovie?.episode_id
       ? selectMovieRatings(state, selectedMovie.episode_id)
       : []
+  );
+  const movieTitle = useSelector((state: RootState) =>
+    selectedMovie?.episode_id
+      ? selectMovieTitle(state, selectedMovie.episode_id)
+      : null
   );
 
   const averageRating = useSelector((state: RootState) =>
@@ -37,7 +43,7 @@ const MovieDetails = () => {
 
   return (
     <Container className="movie-details">
-      <h3 className="movie-details__title">{selectedMovie?.title}</h3>
+      <h3 className="movie-details__title">{movieTitle}</h3>
 
       <div className="movie-details__body">
         <Image

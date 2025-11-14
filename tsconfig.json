@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "types": ["vite/client"],
     "lib": ["DOM", "ESNext"],
     "jsx": "react-jsx",
     "moduleResolution": "Node",
@@ -12,5 +13,6 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src", "src/__tests__"]
 }

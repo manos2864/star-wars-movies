@@ -6,10 +6,11 @@
 
   --clr-orange: hsl(28, 43%, 28%);
   --clr-teal: hsl(186, 42%, 25%);
-  --clr-brown-500: hsl(10, 5%, 25%);
-  --clr-brown-600: hsl(9, 7%, 21%);
+  --clr-brown-500: hsl(10, 5%, 85%);
+  --clr-brown-600: hsl(9, 7%, 71%);
 
   // Sizes
+  --size-2: 0.125rem;
   --size-4: 0.25rem;
   --size-8: 0.5rem;
   --size-10: 0.625rem;
@@ -22,6 +23,7 @@
   --size-32: 2rem;
 
   // Fonts
+  --fs-base: 16px;
   --fs-400: var(--size-16);
   --fs-700: var(--size-24);
 }

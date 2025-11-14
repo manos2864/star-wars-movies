@@ -3,7 +3,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { calculateAverageRating, getTotalRating } from "@/pages/movies/helpers";
 import type { RootState } from "@/store/index.ts";
 import { numberToRoman } from "@/utils/display";
-import { SORTING_KEY_ENUMS } from "./slice";
+import { SORTING_KEY_ENUMS } from "@/store/movies/types";
 
 const moviesReducer = (state: RootState) => state.movies;
 

@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 
 import { selectFilteredSortedMovieIds } from "@/store/movies/selectors";
 import type { RootState } from "@/store";
-import { SORTING_KEY_ENUMS } from "@/store/movies/slice";
+import { SORTING_KEY_ENUMS } from "@/store/movies/types";
 
 const state = {
   movies: {

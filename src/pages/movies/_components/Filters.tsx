@@ -6,11 +6,8 @@ import variables from "@/styles/_exports.module.scss";
 import Dropdown from "@/_components/form/Dropdown";
 import Input from "@/_components/form/Input";
 import { type AppDispatch } from "@/store";
-import {
-  setSearchFilter,
-  setSortingFilter,
-  type SORTING_KEYS,
-} from "@/store/movies/slice";
+import { setSearchFilter, setSortingFilter } from "@/store/movies/slice";
+import type { SORTING_KEYS } from "@/store/movies/types";
 import {
   selectMovieFilterSearch,
   selectMovieFilterSorting,

@@ -7,17 +7,9 @@ import {
 import { fetchOmdAction, fetchSwapiAction } from "./actions";
 import { type MovieResult } from "@/entities/swapi";
 import { type MovieOmd } from "@/entities/omd";
+import { SORTING_KEY_ENUMS, SORTING_KEYS } from "./types";
 
 type StateMovie = MovieResult & Partial<MovieOmd>;
-
-export const SORTING_KEY_ENUMS = {
-  YEAR: "year",
-  EPISODE: "episode",
-  TOTAL_RATING: "totalRating",
-} as const;
-
-export type SORTING_KEYS =
-  (typeof SORTING_KEY_ENUMS)[keyof typeof SORTING_KEY_ENUMS];
 
 interface SliceState {
   movies: Record<string, StateMovie>;

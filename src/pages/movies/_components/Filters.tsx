@@ -58,7 +58,7 @@ const Filters: FC = () => {
 
 export default Filters;
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
   flex-wrap: wrap;
   gap: ${variables.size8};

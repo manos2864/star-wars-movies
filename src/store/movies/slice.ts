@@ -10,17 +10,21 @@ import { type MovieOmd } from "@/entities/omd";
 
 type StateMovie = MovieResult & Partial<MovieOmd>;
 
+export type SortingType = "year" | "episode" | "totalRating";
+
 interface SliceState {
   movies: Record<string, StateMovie>;
   movieIds: number[];
   loading: boolean;
   selectedMovieId: number | null;
+  filters: { search: string; sorting: SortingType };
 }
 
 const initialState: SliceState = {
   movies: {},
   movieIds: [],
   selectedMovieId: null,
+  filters: { search: "", sorting: "episode" },
   loading: false,
 };
 
@@ -30,6 +34,12 @@ const moviesSlice = createSlice({
   reducers: {
     setSelectedMovieId(state, action: PayloadAction<number | null>) {
       state.selectedMovieId = action.payload;
+    },
+    setSearchFilter(state, action: PayloadAction<string>) {
+      state.filters.search = action.payload;
+    },
+    setSortingFilter(state, action: PayloadAction<SortingType>) {
+      state.filters.sorting = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -78,6 +88,7 @@ const moviesSlice = createSlice({
   },
 });
 
-export const { setSelectedMovieId } = moviesSlice.actions;
+export const { setSelectedMovieId, setSearchFilter, setSortingFilter } =
+  moviesSlice.actions;
 
 export default moviesSlice.reducer;

@@ -3,6 +3,8 @@
 A small React application built with **TypeScript**, **Vite**, and **SWC**, allowing users to browse, search, and sort Star Wars movies.  
 Includes unit tests for selectors, utilities, and components.
 
+You can visit the page: https://melodious-sable-502591.netlify.app/
+
 ---
 
 ## 📦 Tech Stack

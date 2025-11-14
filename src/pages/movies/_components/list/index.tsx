@@ -36,13 +36,14 @@ export default List;
 
 const ListContainer = styled.ul`
   display: flex;
-  position: relative;
   flex-direction: column;
   overflow-x: auto;
   padding: 0;
 `;
 
 const BorderContainer = styled.div`
+  position: relative;
+
   @media (width > ${variables.md}) {
     border-right: 1px solid;
     border-color: ${variables["bg-light"]};

@@ -1,32 +1,34 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
 
-import Placeholder from "@/_components/Placeholder";
+import Placeholder from "@/_components/display/Placeholder";
 import variables from "@/styles/_exports.module.scss";
 import {
   selectMoviesAreLoading,
-  selectMovieIds,
+  selectFilteredSortedMovieIds,
 } from "@/store/movies/selectors";
-import Spinner from "@/_components/Spinner";
+import Spinner from "@/_components/feedback/Spinner";
 import Item from "./Item";
 
 const List: FC = () => {
-  const movieIds = useSelector(selectMovieIds);
+  const filteredMovieIds = useSelector(selectFilteredSortedMovieIds);
   const isLoading = useSelector(selectMoviesAreLoading);
   const isEmpty =
-    (Array.isArray(movieIds) && movieIds.length === 0) ||
-    !Array.isArray(movieIds);
+    (Array.isArray(filteredMovieIds) && filteredMovieIds.length === 0) ||
+    !Array.isArray(filteredMovieIds);
 
   return (
-    <BorderContainer>
+    <BorderContainer className="full-height-movies-container">
       {isLoading ? <Spinner /> : null}
 
       <ListContainer>
         {isEmpty && !isLoading ? <Placeholder>No Movies</Placeholder> : null}
 
         {!isEmpty &&
-          movieIds.map((movieId) => <Item key={movieId} movieId={movieId} />)}
+          filteredMovieIds.map((movieId) => (
+            <Item key={movieId} movieId={movieId} />
+          ))}
       </ListContainer>
     </BorderContainer>
   );
@@ -47,6 +49,5 @@ const BorderContainer = styled.div`
   @media (width > ${variables.md}) {
     border-right: 1px solid;
     border-color: ${variables["bg-light"]};
-    min-height: 100vh;
   }
 `;

@@ -20,7 +20,7 @@
   }
 }
 
-@mixin min-respond($key) {
+@mixin respond-above($key) {
   $value: map-get($breakpoints, $key);
 
   @if $value {

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useSelector } from "react-redux";
-import Placeholder from "@/_components/Placeholder";
+import Placeholder from "@/_components/display/Placeholder";
 import {
   selectMovieAverageRating,
   selectMovieRatings,
@@ -8,10 +8,10 @@ import {
   selectSelectedMovie,
 } from "@/store/movies/selectors";
 import variables from "@/styles/_exports.module.scss";
-import Image from "@/_components/Image";
+import Image from "@/_components/display/Image";
 import { RootState } from "@/store";
-import Rating from "@/_components/Rating";
-import PillContainer from "@/_components/PillContainer";
+import Rating from "@/_components/display/Rating";
+import PillContainer from "@/_components/display/PillContainer";
 import { ratingToPercentage } from "@/pages/movies/helpers";
 
 const MovieDetails = () => {
@@ -42,7 +42,7 @@ const MovieDetails = () => {
   }
 
   return (
-    <Container className="movie-details">
+    <Container className="movie-details full-height-movies-container">
       <h3 className="movie-details__title">{movieTitle}</h3>
 
       <div className="movie-details__body">
@@ -87,10 +87,6 @@ const Container = styled.article`
   }
 
   margin-block: ${variables.size18};
-
-  @media (width > ${variables.md}) {
-    min-height: 100vh;
-  }
 
   .movie-details {
     &__ratings {

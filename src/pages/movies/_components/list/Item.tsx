@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import styled from "@emotion/styled";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,7 +11,7 @@ import {
 } from "@/store/movies/selectors";
 import { type AppDispatch, type RootState } from "@/store";
 import { setSelectedMovieId } from "@/store/movies/slice";
-import Rating from "@/_components/Rating";
+import Rating from "@/_components/display/Rating";
 
 interface ItemProps {
   movieId: number;

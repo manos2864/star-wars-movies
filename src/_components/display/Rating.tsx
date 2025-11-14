@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 

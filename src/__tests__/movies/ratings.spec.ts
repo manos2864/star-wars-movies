@@ -1,9 +1,11 @@
 import { describe, it, expect } from "vitest";
 import {
   calculateAverageRating,
+  getTotalRating,
   normalizeRating,
   ratingToPercentage,
-} from "../pages/movies/helpers";
+} from "@/pages/movies/helpers";
+import { Ratings } from "@/entities/omd";
 
 describe("Test cases for normalizeRating function", () => {
   it("should normalize IMDB rating correctly", () => {
@@ -92,5 +94,35 @@ describe("Test cases for ratingToPercentage function", () => {
   it("handles decimal values correctly", () => {
     const rating = { Source: "Internet Movie Database", Value: "7.5/10" };
     expect(ratingToPercentage(rating)).toBe("75%");
+  });
+});
+
+describe("Test cases for getTotalRating function", () => {
+  it("should return 0 if ratings are undefined", () => {
+    expect(getTotalRating(undefined)).toBe(0);
+  });
+
+  it("should return 0 if ratings array is empty", () => {
+    expect(getTotalRating([])).toBe(0);
+  });
+
+  it("should sum normalized ratings correctly", () => {
+    const ratings = [
+      { Source: "Internet Movie Database", Value: "8.5/10" },
+      { Source: "Rotten Tomatoes", Value: "90%" },
+      { Source: "Metacritic", Value: "70/100" },
+    ] as Ratings[];
+
+    // normalized: 8.5 + 9 + 7 = 24.5
+    expect(getTotalRating(ratings)).toBeCloseTo(24.5);
+  });
+
+  it("should ignore invalid ratings", () => {
+    const ratings = [
+      { Source: "Internet Movie Database", Value: "8.5/10" },
+      { Source: "Unknown", Value: "N/A" },
+    ] as Ratings[];
+
+    expect(getTotalRating(ratings)).toBeCloseTo(8.5);
   });
 });

@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import { numberToRoman } from "../utils/display";
+import { numberToRoman } from "@/utils/display";
 
 describe("Test cases for numberToRoman function", () => {
   it("should convert numbers 1-10 to Roman numerals", () => {

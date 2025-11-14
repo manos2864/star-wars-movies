@@ -34,6 +34,10 @@ body {
   background-color: $white;
 }
 
+input {
+  font-size: $font-size-regular;
+}
+
 img,
 picture {
   max-inline-size: 100%;

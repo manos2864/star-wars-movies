@@ -4,6 +4,7 @@ export type MovieResult = {
   release_date: string;
   director: string;
   episode_id: number;
+  opening_crawl: null | string;
   producer: string;
 };
 

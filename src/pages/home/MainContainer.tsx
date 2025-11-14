@@ -1,22 +1,19 @@
 import { FC } from "react";
 import styled from "@emotion/styled";
 
-import { useFetchSwapi } from "@/services/swapi/queries";
 import List from "./_components/list";
-import Spinner from "@/_components/Spinner";
 import variables from "@/styles/_exports.module.scss";
-import MovieDetails from "./_components/movie-details";
+import DetailedView from "./_components/DetailedView";
+import useFetchMovies from "./hooks/useFetchMovies";
 
 const MainContainer: FC = () => {
-  const { data, isFetching } = useFetchSwapi();
+  useFetchMovies();
 
   return (
     <Container className="equal-columns position-relative">
-      <div>{isFetching ? <Spinner /> : <List movies={data} />}</div>
+      <List />
 
-      <div>
-        <MovieDetails />
-      </div>
+      <DetailedView />
     </Container>
   );
 };

@@ -1,23 +1,31 @@
 import { FC } from "react";
-import Placeholder from "@/_components/Placeholder";
-import { MovieResult } from "@/entities/swapi";
-import Item from "./Item";
+import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
+
+import Placeholder from "@/_components/Placeholder";
 import variables from "@/styles/_exports.module.scss";
+import {
+  selectHomeIsLoading,
+  selectHomeMovieIds,
+} from "@/store/home/selectors";
+import Spinner from "@/_components/Spinner";
+import Item from "./Item";
 
-interface ListProps {
-  movies?: MovieResult[];
-}
-
-const List: FC<ListProps> = ({ movies }) => {
-  if ((Array.isArray(movies) && movies.length === 0) || !Array.isArray(movies))
-    return <Placeholder>No Movies</Placeholder>;
+const List: FC = () => {
+  const movieIds = useSelector(selectHomeMovieIds);
+  const isLoading = useSelector(selectHomeIsLoading);
+  const isEmpty =
+    (Array.isArray(movieIds) && movieIds.length === 0) ||
+    !Array.isArray(movieIds);
 
   return (
-    <Container>
-      {movies.map((movie) => (
-        <Item key={movie.episode_id} {...movie} />
-      ))}
+    <Container className="position-relative">
+      {isLoading ? <Spinner /> : null}
+
+      {isEmpty && !isLoading ? <Placeholder>No Movies</Placeholder> : null}
+
+      {!isEmpty &&
+        movieIds.map((movieId) => <Item key={movieId} movieId={movieId} />)}
     </Container>
   );
 };
@@ -26,13 +34,15 @@ export default List;
 
 const Container = styled.ul`
   display: flex;
+  position: relative;
   flex-direction: column;
   max-width: 100vw;
   overflow-x: auto;
-  padding: 0 var(--padding-x, 0);
-  gap: ${variables.size2};
+  padding: 0;
 
   @media (width > ${variables.md}) {
-    --padding-x: ${variables.size32};
+    border-right: 1px solid;
+    border-color: ${variables["bg-light"]};
+    min-height: 100vh;
   }
 `;

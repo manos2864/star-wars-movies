@@ -1,3 +1,5 @@
+import { Ratings } from "@/entities/omd";
+
 export const normalizeRating = (rating: {
   Source: string;
   Value: string;
@@ -14,6 +16,17 @@ export const normalizeRating = (rating: {
     default:
       return NaN;
   }
+};
+
+export const getTotalRating = (ratings?: Ratings[]) => {
+  if (!ratings || ratings.length === 0) return 0;
+
+  const total = ratings
+    .map((r) => normalizeRating(r))
+    .filter((val) => !isNaN(val))
+    .reduce((sum, val) => sum + val, 0);
+
+  return total;
 };
 
 export const ratingToPercentage = (rating: {

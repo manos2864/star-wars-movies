@@ -1,6 +1,6 @@
 type SourceType = "Internet Movie Database" | "Rotten Tomatoes" | "Metacritic";
 
-type Ratings = { Source: SourceType; Value: string };
+export type Ratings = { Source: SourceType; Value: string };
 
 export interface MovieOmd {
   Director: string;

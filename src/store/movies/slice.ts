@@ -10,14 +10,21 @@ import { type MovieOmd } from "@/entities/omd";
 
 type StateMovie = MovieResult & Partial<MovieOmd>;
 
-export type SortingType = "year" | "episode" | "totalRating";
+export const SORTING_KEY_ENUMS = {
+  YEAR: "year",
+  EPISODE: "episode",
+  TOTAL_RATING: "totalRating",
+} as const;
+
+export type SORTING_KEYS =
+  (typeof SORTING_KEY_ENUMS)[keyof typeof SORTING_KEY_ENUMS];
 
 interface SliceState {
   movies: Record<string, StateMovie>;
   movieIds: number[];
   loading: boolean;
   selectedMovieId: number | null;
-  filters: { search: string; sorting: SortingType };
+  filters: { search: string; sorting: SORTING_KEYS };
 }
 
 const initialState: SliceState = {
@@ -38,7 +45,7 @@ const moviesSlice = createSlice({
     setSearchFilter(state, action: PayloadAction<string>) {
       state.filters.search = action.payload;
     },
-    setSortingFilter(state, action: PayloadAction<SortingType>) {
+    setSortingFilter(state, action: PayloadAction<SORTING_KEYS>) {
       state.filters.sorting = action.payload;
     },
   },

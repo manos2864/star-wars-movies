@@ -9,7 +9,7 @@ import { type AppDispatch } from "@/store";
 import {
   setSearchFilter,
   setSortingFilter,
-  SortingType,
+  type SORTING_KEYS,
 } from "@/store/movies/slice";
 import {
   selectMovieFilterSearch,
@@ -22,7 +22,7 @@ const Filters: FC = () => {
   const searchQuery = useSelector(selectMovieFilterSearch);
 
   const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value as SortingType;
+    const value = e.target.value as SORTING_KEYS;
     dispatch(setSortingFilter(value));
   };
 

@@ -83,7 +83,7 @@ const Container = styled.article`
   margin-block: ${variables.size18};
 
   @media (width > ${variables.md}) {
-    min-block-size: 100vh;
+    min-height: 100vh;
   }
 
   .movie-details {

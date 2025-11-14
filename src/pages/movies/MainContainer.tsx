@@ -21,7 +21,7 @@ const MainContainer: FC = () => {
 export default MainContainer;
 
 const Container = styled.section`
-  width: 100%;
+  inline-size: 100%;
   display: grid;
   padding-block-top: var(--padding-main-container, ${variables.size12});
   grid-template-columns: 1fr;
@@ -40,6 +40,6 @@ const Container = styled.section`
   }
 
   & > * {
-    min-width: 0;
+    min-inline-size: 0;
   }
 `;

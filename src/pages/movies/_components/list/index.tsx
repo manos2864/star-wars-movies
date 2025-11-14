@@ -19,7 +19,7 @@ const List: FC = () => {
     !Array.isArray(movieIds);
 
   return (
-    <BorderContainer className="position-relative">
+    <BorderContainer>
       {isLoading ? <Spinner /> : null}
 
       <ListContainer>
@@ -43,11 +43,9 @@ const ListContainer = styled.ul`
 `;
 
 const BorderContainer = styled.div`
-  max-block-size: 100vw;
-
   @media (width > ${variables.md}) {
     border-right: 1px solid;
     border-color: ${variables["bg-light"]};
-    min-block-size: 100vh;
+    min-height: 100vh;
   }
 `;

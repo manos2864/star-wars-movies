@@ -37,16 +37,22 @@ const ImageWrapper = styled.div<{ width: number; height: number }>`
   justify-content: center;
 
   @media (width > ${variables.md}) {
-    inline-size: ${({ width }) => width}px;
-    block-size: ${({ height }) => height}px;
+    min-inline-size: ${({ width }) => width}px;
+    min-block-size: ${({ height }) => height}px;
+    max-inline-size: ${({ width }) => width}px;
+    max-block-size: ${({ height }) => height}px;
   }
 `;
 
 const StyledImg = styled.img`
   inline-size: 100%;
   block-size: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.3s ease, filter 0.3s ease;
+
+  @media (width > ${variables.md}) {
+    object-fit: cover;
+  }
 
   &:hover {
     transform: scale(1.05);

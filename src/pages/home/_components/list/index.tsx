@@ -19,30 +19,35 @@ const List: FC = () => {
     !Array.isArray(movieIds);
 
   return (
-    <Container className="position-relative">
+    <BorderContainer className="position-relative">
       {isLoading ? <Spinner /> : null}
 
-      {isEmpty && !isLoading ? <Placeholder>No Movies</Placeholder> : null}
+      <ListContainer>
+        {isEmpty && !isLoading ? <Placeholder>No Movies</Placeholder> : null}
 
-      {!isEmpty &&
-        movieIds.map((movieId) => <Item key={movieId} movieId={movieId} />)}
-    </Container>
+        {!isEmpty &&
+          movieIds.map((movieId) => <Item key={movieId} movieId={movieId} />)}
+      </ListContainer>
+    </BorderContainer>
   );
 };
 
 export default List;
 
-const Container = styled.ul`
+const ListContainer = styled.ul`
   display: flex;
   position: relative;
   flex-direction: column;
-  max-width: 100vw;
   overflow-x: auto;
   padding: 0;
+`;
+
+const BorderContainer = styled.div`
+  max-block-size: 100vw;
 
   @media (width > ${variables.md}) {
     border-right: 1px solid;
     border-color: ${variables["bg-light"]};
-    min-height: 100vh;
+    min-block-size: 100vh;
   }
 `;

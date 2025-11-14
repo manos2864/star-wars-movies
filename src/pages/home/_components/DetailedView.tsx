@@ -28,7 +28,11 @@ const MovieDetails = () => {
   );
 
   if (!selectedMovie) {
-    return <Placeholder>Select a movie</Placeholder>;
+    return (
+      <Container>
+        <Placeholder>Select a movie</Placeholder>
+      </Container>
+    );
   }
 
   return (
@@ -40,7 +44,7 @@ const MovieDetails = () => {
           key={selectedMovie?.Poster}
           url={selectedMovie?.Poster}
           alt={selectedMovie?.title}
-          width={680}
+          width={150}
           height={250}
         />
 
@@ -76,8 +80,10 @@ const Container = styled.article`
     }
   }
 
+  margin-block: ${variables.size18};
+
   @media (width > ${variables.md}) {
-    min-height: 100vh;
+    min-block-size: 100vh;
   }
 
   .movie-details {

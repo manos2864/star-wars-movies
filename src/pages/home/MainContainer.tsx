@@ -10,7 +10,7 @@ const MainContainer: FC = () => {
   useFetchMovies();
 
   return (
-    <Container className="equal-columns position-relative">
+    <Container className="position-relative">
       <List />
 
       <DetailedView />
@@ -22,9 +22,24 @@ export default MainContainer;
 
 const Container = styled.section`
   width: 100%;
-  padding-block: var(--padding, ${variables.size12});
+  display: grid;
+  padding-block-top: var(--padding-main-container, ${variables.size12});
+  grid-template-columns: 1fr;
+  gap: ${variables.size16};
 
-  @media (width > ${variables.md}) {
-    --padding: ${variables.size32};
+  @media (width > ${variables.sm}) {
+    grid-template-columns: 2fr 1fr;
+
+    --padding-main-container: ${variables.size32};
+  }
+
+  @media (width > ${variables.xl}) {
+    grid-template-columns: 1fr 1fr;
+
+    --padding-main-container: ${variables.size32};
+  }
+
+  & > * {
+    min-width: 0;
   }
 `;

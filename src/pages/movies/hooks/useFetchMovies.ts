@@ -10,7 +10,7 @@ const useFetchMovies = () => {
   const fetchMovies = useCallback(async () => {
     try {
       const movies = await dispatch(fetchSwapiAction()).unwrap();
-      await Promise.all(
+      await Promise.allSettled(
         (movies || []).map((movie) =>
           dispatch(
             fetchOmdAction({ title: movie.title, movieId: movie.episode_id })

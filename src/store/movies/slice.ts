@@ -1,4 +1,9 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  isPending,
+  isRejected,
+  type PayloadAction,
+} from "@reduxjs/toolkit";
 import { fetchOmdAction, fetchSwapiAction } from "./actions";
 import { type MovieResult } from "@/entities/swapi";
 import { type MovieOmd } from "@/entities/omd";
@@ -28,10 +33,6 @@ const moviesSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchSwapiAction.pending, (state) => {
-      state.loading = true;
-    });
-
     builder.addCase(fetchSwapiAction.fulfilled, (state, { payload }) => {
       const movies = payload || [];
 
@@ -51,14 +52,6 @@ const moviesSlice = createSlice({
       );
     });
 
-    builder.addCase(fetchSwapiAction.rejected, (state) => {
-      state.loading = false;
-    });
-
-    builder.addCase(fetchOmdAction.pending, (state) => {
-      state.loading = true;
-    });
-
     builder.addCase(fetchOmdAction.fulfilled, (state, { payload }) => {
       const updatedDataMovie = payload.response;
       const movieId = payload.movieId;
@@ -72,8 +65,15 @@ const moviesSlice = createSlice({
       };
     });
 
-    builder.addCase(fetchOmdAction.rejected, (state) => {
-      state.loading = false;
+    builder.addMatcher(
+      isRejected(fetchSwapiAction, fetchOmdAction),
+      (state) => {
+        state.loading = false;
+      }
+    );
+
+    builder.addMatcher(isPending(fetchSwapiAction, fetchOmdAction), (state) => {
+      state.loading = true;
     });
   },
 });

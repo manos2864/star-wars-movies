@@ -7,7 +7,7 @@ import { type MovieOmd } from "@/entities/omd";
 export const fetchSwapiAction = createAsyncThunk<
   MovieResult[] | undefined,
   void
->("users/fetchSwapiAction", async (_, { rejectWithValue }) => {
+>("movies/fetchSwapiAction", async (_, { rejectWithValue }) => {
   try {
     const response = await fetchSwapi();
 
@@ -24,7 +24,7 @@ export const fetchSwapiAction = createAsyncThunk<
 export const fetchOmdAction = createAsyncThunk<
   { response: MovieOmd | undefined; movieId: number },
   { title: string; movieId: number }
->("users/fetchOmdAction", async ({ title, movieId }, { rejectWithValue }) => {
+>("movies/fetchOmdAction", async ({ title, movieId }, { rejectWithValue }) => {
   try {
     const response = await fetchOmdb(title);
 

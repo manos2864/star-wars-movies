@@ -1,4 +1,4 @@
-import { FC } from "react";
+import type { FC } from "react";
 import styled from "@emotion/styled";
 
 import List from "./_components/list";

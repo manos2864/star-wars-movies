@@ -1,4 +1,4 @@
-import { type FC, type ChangeEvent } from "react";
+import type { FC, ChangeEvent } from "react";
 import styled from "@emotion/styled";
 import variables from "@/styles/_exports.module.scss";
 

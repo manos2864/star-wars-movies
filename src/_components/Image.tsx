@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 import styled from "@emotion/styled";
 import NoImageAvailable from "@/assets/generic/no-image-available.jpg";
 import variables from "@/styles/_exports.module.scss";
